@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AssemblyName>claudebridge</AssemblyName>
+		<PackageId>claudebridge</PackageId>
+		<LangVersion>14</LangVersion>
+		<NoWarn>1701;1702;1591;</NoWarn>
+		<WarningsAsErrors></WarningsAsErrors>
+		<TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<DefineConstants>SANDBOX</DefineConstants>
+		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+		<OutputPath>../../../../../sbox-public/game/.vs/output/</OutputPath>
+		<DocumentationFile>../../../../../sbox-public/game/.vs/output/claudebridge.xml</DocumentationFile>
+		<RootNamespace>Sandbox</RootNamespace>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="Sandbox.Internal.GlobalGameNamespace" Static="true" />
+		<Using Include="Microsoft.AspNetCore.Components" />
+		<Using Include="Microsoft.AspNetCore.Components.Rendering" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Analyzer Include="../../../../../sbox-public/game/bin/managed/Sandbox.CodeUpgrader.dll"/> 
+		<Analyzer Include="../../../../../sbox-public/game/bin/managed/Sandbox.Generator.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Sandbox.System.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Sandbox.Engine.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Sandbox.Filesystem.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Sandbox.Reflection.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Sandbox.Mounting.dll"/> 
+		<Reference Include="../../../../../sbox-public/game/bin/managed/Microsoft.AspNetCore.Components.dll"/> 
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../../../../../sbox-public/game/addons/base/code/Base Library.csproj" />
+	</ItemGroup>
+
+</Project>

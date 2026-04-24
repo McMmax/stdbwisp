@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>package.stellawisps.spacetimedbapi</name>
+    </assembly>
+    <members>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnConnected">
+            <summary>Fired after IdentityToken received AND initial subscription applied.</summary>
+        </member>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnDisconnected">
+            <summary>Fired when the WebSocket closes.</summary>
+        </member>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnTableInsert">
+            <summary>Fired for every inserted row in any subscribed table.</summary>
+        </member>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnTableDelete">
+            <summary>Fired for every deleted row in any subscribed table.</summary>
+        </member>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnReducerEvent">
+            <summary>Fired when a reducer transaction update arrives (status = "Committed" | "Failed" | ...).</summary>
+        </member>
+        <member name="E:SpacetimeDB.SpacetimeDbClient.OnError">
+            <summary>Fired on any WebSocket or parse error.</summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.ConnectAsync">
+            <summary>
+            Full connection flow:
+              1. POST /v1/identity           → get identity + auth token
+              2. POST /v1/identity/websocket-token → get a short-lived WS token
+              3. Open WebSocket with ?token=...
+            OnConnected fires after IdentityToken + first InitialSubscription.
+            </summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.Subscribe(System.String[])">
+            <summary>
+            Subscribe to one or more table names.
+            Generates "SELECT * FROM {table}" for each.
+            Safe to call before ConnectAsync() — queries are queued.
+            </summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.SubscribeWithQuery(System.String[])">
+            <summary>Subscribe with raw SQL query strings.</summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.CallReducerAsync(System.String,System.Object[])">
+            <summary>
+            Invoke a reducer via HTTP POST.
+            Args are serialised as a JSON array: ["arg1", 42, true, ...].
+            Pass no args or null for zero-argument reducers.
+            </summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.Tick">
+            <summary>
+            Call this every frame (e.g. from a Component's OnUpdate).
+            Sends a WebSocket ping frame if the keepalive interval has elapsed.
+            Required because SpacetimeDB MainCloud closes idle connections after ~30s.
+            </summary>
+        </member>
+        <member name="M:SpacetimeDB.SpacetimeDbClient.ArrayRowToObject(System.String,System.Text.Json.JsonElement)">
+            <summary>
+            Converts a positional array row from TransactionUpdate into a named-property
+            JsonElement so downstream code can use TryGetProperty() uniformly.
+            Column order must match the struct field order in your SpacetimeDB module.
+            </summary>
+        </member>
+        <member name="T:SpacetimeDB.SpacetimeDbComponent">
+            <summary>
+            Drop on a GameObject and configure in the Inspector.
+            Calls ConnectAsync() on Start if AutoConnect is true.
+            </summary>
+        </member>
+    </members>
+</doc>

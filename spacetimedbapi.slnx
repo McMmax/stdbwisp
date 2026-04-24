@@ -1,0 +1,24 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Folder Name="/Addons/">
+    <Project Path="../../sbox-public/game/addons/base/code/Base Library.csproj" />
+  </Folder>
+  <Folder Name="/Libraries/">
+    <Project Path="Code/spacetimedbapi.csproj" />
+    <Project Path="Editor/spacetimedbapi.editor.csproj" />
+    <Project Path="Libraries/sboxskinsgg.claudebridge/Code/claudebridge.csproj" />
+    <Project Path="Libraries/sboxskinsgg.claudebridge/Editor/claudebridge.editor.csproj" />
+    <Project Path="Libraries/sboxskinsgg.claudebridge/UnitTests/claudebridge.unittest.csproj" />
+    <Project Path="UnitTests/spacetimedbapi.unittest.csproj" />
+  </Folder>
+  <Folder Name="/Tools/">
+    <Project Path="../../sbox-public/game/addons/tools/Code/Base Editor Library.csproj" />
+    <Project Path="../../sbox-public/game/editor/ActionGraph/Code/actiongraph.csproj" />
+    <Project Path="../../sbox-public/game/editor/DooEditor/Code/dooeditor.csproj" />
+    <Project Path="../../sbox-public/game/editor/Hammer/Code/hammer.csproj" />
+    <Project Path="../../sbox-public/game/editor/MovieMaker/Code/moviemaker.csproj" />
+    <Project Path="../../sbox-public/game/editor/ShaderGraph/Code/shadergraph.csproj" />
+  </Folder>
+</Solution>

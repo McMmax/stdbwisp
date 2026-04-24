@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Editor": {
+      "commandName": "Executable",
+      "executablePath": "../../../../../../sbox-public/game/sbox-dev.exe",
+      "commandLineArgs": "-project \u0022C:\\Users\\trapaholics\\Desktop\\Workspace\\Projects\\stellawisps.spacetimedbapi\\Libraries\\sboxskinsgg.claudebridge\\claudebridge.sbproj\u0022"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Title": "SpaceTimeDbApi",
+  "Type": "library",
+  "Org": "stellawisps",
+  "Ident": "spacetimedbapi",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Mounts": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {}
+}
